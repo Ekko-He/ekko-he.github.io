@@ -1,0 +1,38 @@
+[
+  {
+    "file": "training.webp",
+    "paper_figure": "main/Neos_training_overview_editable.pdf",
+    "width": 2400,
+    "height": 1228
+  },
+  {
+    "file": "data-pipeline.webp",
+    "paper_figure": "main/Neos_data_pipeline_editable.pdf",
+    "width": 2400,
+    "height": 1449
+  },
+  {
+    "file": "benchmarks.webp",
+    "paper_figure": "main/Neos_benchmark_bar_charts.pdf",
+    "width": 2400,
+    "height": 520
+  },
+  {
+    "file": "tool-use.webp",
+    "paper_figure": "main/Neos_ten_bench_tool_call.pdf",
+    "width": 2400,
+    "height": 795
+  },
+  {
+    "file": "recorder-case.webp",
+    "paper_figure": "appendix/Neos_case_mmbc_recorder.pdf",
+    "width": 2400,
+    "height": 2627
+  },
+  {
+    "file": "fashion-case.webp",
+    "paper_figure": "appendix/Neos_case_visbrowse_fashion.pdf",
+    "width": 2400,
+    "height": 2961
+  }
+]

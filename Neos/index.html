@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#fbf9fb">
+    <meta name="neos-preview-build" content="20261001-clean-links">
+    <meta name="description" content="Neos is a multimodal deep search framework that learns to interleave search and visual reasoning through agent–environment co-evolution.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ekko-he.github.io/Neos/">
+    <meta property="og:title" content="Neos: Learning to Interleave Search and Visual Reasoning">
+    <meta property="og:description" content="Learning how to acquire visual evidence—and how to use it to guide subsequent decisions.">
+    <title>Neos · Learning to Interleave Search and Visual Reasoning</title>
+    <link rel="canonical" href="https://ekko-he.github.io/Neos/">
+    <link rel="icon" type="image/png" href="assets/neos-logo.png">
+    <link rel="stylesheet" href="styles.css?v=20261001-clean-links">
+    <script src="cases.js?v=2" defer></script>
+    <script src="site.js?v=2" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#abstract">Skip to abstract</a>
+
+    <header class="site-header page-width">
+      <a class="brand" href="#top" aria-label="Neos, back to top">
+        <img src="assets/neos-logo.png" alt="" width="30" height="30">
+        <span>Neos</span>
+      </a>
+      <img class="accio-logo" src="assets/brand/accio.svg" alt="Accio" width="126" height="37">
+    </header>
+
+    <main id="top">
+      <section class="hero page-width" aria-labelledby="paper-title">
+        <h1 id="paper-title">
+          <span class="project-name">Neos<span class="sr-only">: </span></span>
+          <span class="paper-title">Learning to Interleave <span class="search-word">Search</span><br class="title-break">
+            and <span class="vision-word">Visual Reasoning</span></span>
+        </h1>
+
+        <!-- Author order, affiliations, and contribution markers follow main.tex. -->
+        <div class="authors" aria-label="Authors">
+          <div class="author-row">
+            <span>Ekko He<sup>1,*</sup></span>
+            <span>Jack Hong<sup>3,*,‡</sup></span>
+            <span>Shilin Yan<sup>1,*,‡</sup></span>
+            <span>Xintong Zhang<sup>1</sup></span>
+            <span>Yujie Zhang<sup>2</sup></span>
+          </div>
+          <div class="author-row">
+            <span>Wenjie Li<sup>2</sup></span>
+            <span>Haoran Sun<sup>3</sup></span>
+            <span>Guannan Zhang<sup>1</sup></span>
+            <span>Hongwei Xue<sup>1,†</sup></span>
+          </div>
+        </div>
+
+        <div class="affiliations" aria-label="Affiliations">
+          <p><sup>1</sup> Accio Team, Alibaba Group</p>
+          <p class="affiliation-row">
+            <span><sup>2</sup> Shanghai Innovation Institute</span>
+            <span><sup>3</sup> Fudan University</span>
+          </p>
+        </div>
+
+        <p class="contributions">
+          <span><sup>*</sup> Equal contribution</span>
+          <span><sup>‡</sup> Project leader</span>
+          <span><sup>†</sup> Corresponding author</span>
+        </p>
+
+        <div class="resources" role="group" aria-label="Project resources">
+          <button class="resource-button resource-paper" type="button" disabled aria-label="arXiv paper">
+            <img class="resource-logo" src="assets/brand/arxiv.svg" alt="" width="20" height="20">
+            arXiv
+          </button>
+          <a class="resource-button resource-github" href="https://github.com/Ekko-He/Neos" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+            <img class="resource-logo" src="assets/brand/github.svg" alt="" width="20" height="20">
+            GitHub
+          </a>
+          <button class="resource-button resource-huggingface" type="button" disabled aria-label="Hugging Face models">
+            <img class="resource-logo" src="assets/brand/huggingface.svg" alt="" width="22" height="22">
+            Models
+          </button>
+          <button class="resource-button resource-huggingface" type="button" disabled aria-label="Hugging Face datasets">
+            <img class="resource-logo" src="assets/brand/huggingface.svg" alt="" width="22" height="22">
+            Datasets
+          </button>
+        </div>
+        <a class="read-abstract" href="#abstract">
+          Read the abstract
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10m-4-4 4 4 4-4"/></svg>
+        </a>
+        <nav class="section-nav" aria-label="Page sections">
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="#demo">Watch a search ↗</a>
+        </nav>
+      </section>
+
+      <section class="abstract-section page-width" id="abstract" aria-labelledby="abstract-title">
+        <div class="section-heading">
+          <p class="eyebrow section-index">01 <span aria-hidden="true">/</span> Overview</p>
+          <h2 id="abstract-title">Abstract</h2>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+
+        <!-- Original abstract; only paragraph breaks and emphasis are presentational. -->
+        <div class="abstract-copy">
+          <p>Recent multimodal deep search agents have advanced tool use and visual content retrieval, yet they still struggle to convert intermediate visual evidence into actionable guidance for subsequent search, limiting their effectiveness in long-horizon settings. To address this gap, we present <strong>Neos</strong>, a multimodal deep search framework that learns both <em>how to acquire evidence</em> and <em>how to use it to guide subsequent decisions</em>.</p>
+
+          <p>To make this coupling learnable, Neos constructs training tasks with intermediate visual dependencies while filtering out textual shortcuts, and introduces a lightweight, trainable Multimodal Evidence Interface (MEI) that transforms retrieved content into goal-conditioned observations. At its core, an <em>agent–environment co-evolution</em> procedure treats MEI as a co-adaptive component of this loop. Specifically, reference-guided credit assignment uses verified successful trajectories to localize critical policy errors while preserving credit for useful decisions in failed searches, whereas rollout feedback selects informative local evidence-processing interactions for MEI supervised fine-tuning (SFT).</p>
+
+          <p>By alternating policy reinforcement learning (RL) with MEI SFT, Neos allows the policy's evolving evidence requests to shape MEI training and the adapted MEI to reshape subsequent observations, closing the loop between evidence acquisition and evidence-conditioned action. Across ten benchmarks, experiments show that Neos-9B improves over its backbone under the same tool workflow by <strong>17.4 percentage points on average</strong>, achieving leading performance among specialized multimodal deep search agents.</p>
+        </div>
+      </section>
+      <section class="research-section page-width" id="method" aria-labelledby="method-title" data-figure-group>
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow section-index">02 <span aria-hidden="true">/</span> Method</p>
+            <h2 id="method-title">An evolving evidence–decision loop.</h2>
+          </div>
+          <p class="section-description">The policy learns to acquire evidence. The Multimodal Evidence Interface learns to make that evidence useful for the next decision.</p>
+        </div>
+        <div class="figure-tabs" role="group" aria-label="Method figure selection">
+          <button type="button" class="tab-button" data-figure-target="figure-training" aria-pressed="true" aria-controls="figure-training">Agent–environment co-evolution</button>
+          <button type="button" class="tab-button" data-figure-target="figure-data" aria-pressed="false" aria-controls="figure-data">Data construction</button>
+        </div>
+        <figure class="paper-figure" id="figure-training" data-figure-panel>
+          <button class="figure-open" type="button" data-full-image="assets/figures/training.webp" data-caption="Agent–environment co-evolution · original paper figure" aria-label="Enlarge the agent–environment co-evolution figure">
+            <img src="assets/figures/training.webp" width="2400" height="1228" alt="Neos training overview: reference-guided policy reinforcement learning alternates with supervised fine-tuning of the Multimodal Evidence Interface." loading="lazy" decoding="async">
+            <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
+          </button>
+          <figcaption><strong>Agent–environment co-evolution.</strong> Policy RL alternates with MEI SFT on outcome- and process-filtered online interactions. Reference-guided credit supports policy optimization and identifies useful local interactions for MEI updates.</figcaption>
+        </figure>
+        <figure class="paper-figure" id="figure-data" data-figure-panel hidden>
+          <button class="figure-open" type="button" data-full-image="assets/figures/data-pipeline.webp" data-caption="Data synthesis pipeline · original paper figure" aria-label="Enlarge the data construction figure">
+            <img src="assets/figures/data-pipeline.webp" width="2400" height="1449" alt="Data construction with visual checkpoints, blind visual grounding, question rewriting, shortcut screening, and verified search trajectories." loading="lazy" decoding="async">
+            <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
+          </button>
+          <figcaption><strong>Data synthesis pipeline.</strong> Reasoning structures with visual checkpoints undergo blind visual grounding, question rewriting, and shortcut screening. Verified successful searches provide policy demonstrations, success references, and local MEI training interactions.</figcaption>
+        </figure>
+      </section>
+
+      <section class="research-section page-width" id="results" aria-labelledby="results-title" data-figure-group>
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow section-index">03 <span aria-hidden="true">/</span> Results</p>
+            <h2 id="results-title">Across ten benchmarks.</h2>
+          </div>
+          <p class="section-description">Neos-9B improves over its backbone under the same tool workflow by 17.4 percentage points on average.</p>
+        </div>
+        <div class="figure-tabs" role="group" aria-label="Results figure selection">
+          <button type="button" class="tab-button" data-figure-target="figure-benchmarks" aria-pressed="true" aria-controls="figure-benchmarks">Benchmark performance</button>
+          <button type="button" class="tab-button" data-figure-target="figure-tools" aria-pressed="false" aria-controls="figure-tools">Tool-use distribution</button>
+        </div>
+        <figure class="paper-figure" id="figure-benchmarks" data-figure-panel>
+          <button class="figure-open" type="button" data-full-image="assets/figures/benchmarks.webp" data-caption="Benchmark performance of Neos-9B · original paper figure" aria-label="Enlarge the benchmark performance figure">
+            <img src="assets/figures/benchmarks.webp" width="2400" height="520" alt="Original paper bar charts comparing Neos-9B with baselines on MMSearch, MMSearch+, BC-VL, and MM-BC." loading="lazy" decoding="async">
+            <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
+          </button>
+          <figcaption><strong>Benchmark performance of Neos-9B.</strong> Four representative deep-search benchmarks from the preprint: MMSearch, MMSearch+, BC-VL, and MM-BC. Click to inspect the original figure.</figcaption>
+        </figure>
+        <figure class="paper-figure" id="figure-tools" data-figure-panel hidden>
+          <button class="figure-open" type="button" data-full-image="assets/figures/tool-use.webp" data-caption="Tool-call distribution across ten benchmarks · original paper figure" aria-label="Enlarge the tool-use distribution figure">
+            <img src="assets/figures/tool-use.webp" width="2400" height="795" alt="Tool-call distributions across ten benchmarks, showing how search, page reading, image retrieval, and cropping are used." loading="lazy" decoding="async">
+            <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
+          </button>
+          <figcaption><strong>Tool-call distribution across ten benchmarks.</strong> The paper’s visualization of the tools used during multimodal search.</figcaption>
+        </figure>
+      </section>
+
+      <section class="research-section page-width" id="demo" aria-labelledby="demo-title">
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow section-index">04 <span aria-hidden="true">/</span> In action</p>
+            <h2 id="demo-title">Watch the search unfold.</h2>
+          </div>
+          <p class="section-description">Start with an image and a question. Follow each tool call as new visual evidence changes what the agent searches for next.</p>
+        </div>
+        <div class="figure-tabs" role="group" aria-label="Recorded example selection">
+          <button class="tab-button case-selector" type="button" data-case="recorder" aria-pressed="true">The recording studio <span aria-hidden="true">· 10 turns</span></button>
+          <button class="tab-button case-selector" type="button" data-case="fashion" aria-pressed="false">The rainy campaign <span aria-hidden="true">· 9 turns</span></button>
+        </div>
+        <noscript><p>This recorded replay requires JavaScript. The paper figures above remain available without it.</p></noscript>
+        <div class="replay-shell" id="replay" aria-label="Recorded multimodal search replay">
+          <div class="replay-top">
+            <div>
+              <h3 class="replay-title" id="replay-title">From a concert to six controls</h3>
+              <div class="replay-meta" id="replay-meta">MMBC · 10 recorded turns · static replay</div>
+            </div>
+            <button class="text-button" id="paper-case" type="button" data-full-image="assets/figures/recorder-case.webp" data-caption="MMBC · original paper visualization">View paper figure ↗</button>
+          </div>
+          <div class="replay-body">
+            <aside class="replay-input" aria-label="Multimodal input">
+              <p class="small-label">Multimodal input</p>
+              <button class="input-image" id="input-image-open" type="button" data-full-image="assets/replay/recorder-img_1.webp" data-caption="Input concert photograph" aria-label="Enlarge the input image">
+                <img id="input-image" src="assets/replay/recorder-img_1.webp" alt="Input concert photograph" loading="lazy" decoding="async">
+              </button>
+              <p class="input-caption" id="input-caption">img_1 · Input concert photograph</p>
+              <p class="input-question" id="input-question"></p>
+              <p class="input-footnote">Search returns references. FetchImage and CropImage bring selected pixels into the policy context.</p>
+            </aside>
+            <div class="replay-stage" id="replay-stage" aria-label="Current recorded turn"></div>
+          </div>
+          <div class="replay-controls">
+            <div class="control-row">
+              <button class="control-button primary" id="replay-play" type="button" aria-pressed="false">▶ Play</button>
+              <button class="control-button" id="replay-prev" type="button" aria-label="Previous turn" disabled>← Prev</button>
+              <button class="control-button" id="replay-next" type="button" aria-label="Next turn">Next →</button>
+              <button class="control-button" id="replay-reset" type="button" aria-label="Reset replay">↺ Reset</button>
+              <label class="speed-control" for="replay-speed">Speed
+                <select id="replay-speed" aria-label="Replay speed"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select>
+              </label>
+              <span class="replay-status" id="replay-status">Ready</span>
+            </div>
+            <div class="progress-row">
+              <label for="replay-progress" id="turn-count">Input / 10</label>
+              <input id="replay-progress" type="range" min="0" max="10" value="0" step="1" aria-label="Seek to a recorded turn">
+            </div>
+            <div class="turn-rail" id="turn-rail" role="group" aria-label="Jump to a tool call"></div>
+          </div>
+        </div>
+        <p class="sr-only" id="turn-announcement" aria-live="polite" aria-atomic="true"></p>
+        <div class="replay-insight"><span>What changes?</span><p id="replay-insight"></p></div>
+        <p class="replay-disclaimer"><span class="replay-label">Recorded, not live</span> &nbsp; Original turn order and recorded images from the paper’s examples. Action and observation text is summarized for readability; the word-by-word timing is illustrative, not the original token stream. No model or search API is called.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer page-width">
+      <span class="footer-wordmark">Neos<span aria-hidden="true">.</span></span>
+      <span>Search with vision. Reason with evidence.</span>
+      <span class="footer-year">Research preprint · 2026</span>
+    </footer>
+
+    <dialog class="lightbox" id="image-lightbox" aria-labelledby="lightbox-caption">
+      <div class="lightbox-header">
+        <p id="lightbox-caption">Paper figure</p>
+        <div class="lightbox-actions">
+          <button type="button" class="control-button" id="lightbox-zoom" aria-pressed="false">Zoom in</button>
+          <button type="button" class="control-button" id="lightbox-close" aria-label="Close image viewer">✕ Close</button>
+        </div>
+      </div>
+      <div class="lightbox-scroll"><img id="lightbox-image" alt=""></div>
+    </dialog>
+  </body>
+</html>
