@@ -1,4 +1,3 @@
-/* Static page: local assets and vanilla-JS playback, with no model/API requests. */
 :root {
   color-scheme: light;
   --paper: #fbf9fb;
@@ -217,8 +216,6 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
 .paper-figure figcaption { margin: 15px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; max-width: 930px; }
 .paper-figure figcaption strong { color: var(--body); font-weight: 500; }
 .static-note { margin: 13px 0 0; font-size: 11px; line-height: 1.75; color: var(--muted); }
-.replay-label { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; color: #83668e; text-transform: uppercase; letter-spacing: 1px; }
-.replay-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #b292bd; }
 .replay-shell { border: 1px solid #e1d8e6; border-radius: 12px; background: #fff; overflow: hidden; }
 .replay-top { padding: 19px 23px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 18px; align-items: center; background: #fcfafc; }
 .replay-title { margin: 0; font-size: 16px; font-weight: 500; color: #584361; }
@@ -232,7 +229,6 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
 .input-image img { display: block; width: 100%; height: 176px; object-fit: contain; }
 .input-question { margin: 18px 0 0; min-height: 142px; color: #514655; font-size: 13px; line-height: 1.85; }
 .input-caption { margin: 9px 0 0; font-size: 10px; color: var(--muted); }
-.input-footnote { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 15px; font-size: 10px; color: #8a7c8f; line-height: 1.8; }
 .replay-stage { padding: 24px 27px; min-width: 0; }
 .turn-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 28px; margin-bottom: 21px; }
 .turn-label { font-size: 10px; letter-spacing: 1.2px; color: var(--muted); text-transform: uppercase; }
@@ -285,7 +281,6 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
 .replay-insight { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 20px; padding: 22px 0 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
 .replay-insight p { margin: 0; }
 .replay-insight > span { color: var(--rose); font-family: var(--serif); font-size: 18px; }
-.replay-disclaimer { font-size: 10px; color: #8d8094; margin: 17px 0 0; line-height: 1.8; }
 .lightbox { width: min(1200px, calc(100vw - 40px)); max-width: none; max-height: calc(100vh - 40px); padding: 0; border: 1px solid #d6c9df; border-radius: 10px; background: white; color: var(--ink); }
 .lightbox::backdrop { background: rgb(38 25 47 / 65%); backdrop-filter: blur(3px); }
 .lightbox-header { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #fbf9fb; border-bottom: 1px solid var(--line); padding: 12px 16px; }
@@ -325,7 +320,6 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
   .input-image img { height: 110px; }
   .input-question { grid-column: 2; grid-row: 2 / 4; min-height: 0; margin: 0; font-size: 11px; line-height: 1.8; }
   .input-caption { grid-column: 1; grid-row: 3; font-size: 9px; }
-  .input-footnote { grid-column: 1 / -1; margin-top: 13px; padding-top: 11px; font-size: 9px; }
   .replay-stage { min-height: 395px; padding: 19px 17px; }
   .stage-empty { min-height: 350px; }
   .stage-empty h3 { font-size: 24px; }
@@ -343,7 +337,6 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
   .speed-control { font-size: 0; gap: 0; }
   .speed-control select { font-size: 10px; }
   .replay-insight { grid-template-columns: 1fr; gap: 5px; }
-  .replay-disclaimer { font-size: 9px; }
   .lightbox { width: calc(100vw - 16px); max-height: calc(100vh - 16px); }
   .lightbox-header { padding: 10px; }
   .lightbox-header p { font-size: 11px; }

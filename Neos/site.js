@@ -1,4 +1,3 @@
-/* Offline, curated replay. No model API, analytics, fetch(), or third-party code. */
 (() => {
   'use strict';
   const $ = (selector, parent = document) => parent.querySelector(selector);
@@ -140,7 +139,7 @@
     orbits.setAttribute('aria-hidden', 'true');
     intro.append(orbits, make('h3', '', 'Follow the evidence.'), make('p', '', currentCase.subtitle), make('p', 'start-hint', 'Press play, or step through one turn at a time.'));
     stage.append(intro);
-    $('#turn-announcement').textContent = `${currentCase.title}. ${currentCase.steps.length} recorded turns. Ready to play.`;
+    $('#turn-announcement').textContent = `${currentCase.title}. ${currentCase.steps.length} turns. Ready to play.`;
     controls();
   }
   function renderTurn(nextIndex, animate = false) {
@@ -157,13 +156,13 @@
       const details = make('details', 'tool-request');
       details.id = 'tool-request';
       details.hidden = animate;
-      details.append(make('summary', '', `${step.tool}(…) · recorded tool input`), make('pre', '', JSON.stringify(step.args, null, 2)));
+      details.append(make('summary', '', `${step.tool}(…) · tool input`), make('pre', '', JSON.stringify(step.args, null, 2)));
       stage.append(details);
     }
     const observation = make('div', `observation-block${step.warning ? ' is-warning' : ''}`);
     observation.id = 'observation-block';
     observation.hidden = animate;
-    const label = step.tool === 'Answer' ? 'Recorded final answer' : step.warning ? 'Observation · request failed' : isVisual ? 'Observation · new visual evidence' : 'Observation · text & references';
+    const label = step.tool === 'Answer' ? 'Final answer' : step.warning ? 'Observation · request failed' : isVisual ? 'Observation · new visual evidence' : 'Observation · text & references';
     const content = make('p', step.tool === 'Answer' ? 'answer-text' : 'observation-text');
     content.id = 'observation-text';
     const images = make('div', 'evidence-images');
@@ -177,7 +176,7 @@
       revealImages(step);
       phase = index === currentCase.steps.length - 1 ? 'done' : 'dwell';
     }
-    $('#turn-announcement').textContent = `Turn ${step.turn} of ${currentCase.steps.length}: ${step.tool}${step.warning ? ', recorded request timeout' : ''}.`;
+    $('#turn-announcement').textContent = `Turn ${step.turn} of ${currentCase.steps.length}: ${step.tool}${step.warning ? ', request timeout' : ''}.`;
     controls();
   }
   function tick() {
@@ -227,7 +226,7 @@
     currentCase = cases.find(item => item.id === caseId) || cases[0];
     $$('.case-selector').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.case === currentCase.id)));
     $('#replay-title').textContent = currentCase.title;
-    $('#replay-meta').textContent = `${currentCase.benchmark} · ${currentCase.steps.length} recorded turns · static replay`;
+    $('#replay-meta').textContent = `${currentCase.benchmark} · ${currentCase.steps.length} turns`;
     $('#replay-insight').textContent = currentCase.insight;
     const input = currentCase.images[currentCase.initialImages[0]];
     $('#input-image').src = input.src;
@@ -236,7 +235,7 @@
     $('#input-image-open').dataset.caption = input.label;
     $('#input-caption').textContent = `img_1 · ${input.label}`;
     $('#paper-case').dataset.fullImage = currentCase.paperFigure;
-    $('#paper-case').dataset.caption = `${currentCase.benchmark} · original paper visualization`;
+    $('#paper-case').dataset.caption = `${currentCase.benchmark} case study`;
     const rail = $('#turn-rail');
     rail.replaceChildren();
     currentCase.steps.forEach((step, number) => {
