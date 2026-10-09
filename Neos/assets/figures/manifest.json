@@ -2,36 +2,49 @@
   {
     "file": "training.webp",
     "paper_figure": "main/Neos_training_overview_editable.pdf",
+    "source_sha256": "42177f4e8af4c2c483aff94f87dae9e083c0772c1a65c52a37ddabee8080190e",
     "width": 2400,
     "height": 1228
   },
   {
     "file": "data-pipeline.webp",
     "paper_figure": "main/Neos_data_pipeline_editable.pdf",
+    "source_sha256": "a4a255dde2033f8c38ec80a2d533dbbd38fdce7f53b9ef571695a0ea243924ac",
     "width": 2400,
     "height": 1449
   },
   {
     "file": "benchmarks.webp",
     "paper_figure": "main/Neos_benchmark_bar_charts.pdf",
+    "source_sha256": "59e7afba600bd81a150c6728d7be391da0528f4c29c1d6d36914ca38aadac955",
     "width": 2400,
-    "height": 520
+    "height": 524
   },
   {
     "file": "tool-use.webp",
     "paper_figure": "main/Neos_ten_bench_tool_call.pdf",
+    "source_sha256": "8d78185aee951acedf2cd623e90a0ddfbc838a7db9bf113514eb1256a029cc96",
     "width": 2400,
     "height": 795
   },
   {
+    "file": "mei-interval.webp",
+    "paper_figure": "main/Neos_mei_update_interval.pdf",
+    "source_sha256": "8c851705d067e13679964d6164c1713f3a9771bacca8cebd5cd52b94e127c4fe",
+    "width": 2400,
+    "height": 1176
+  },
+  {
     "file": "recorder-case.webp",
     "paper_figure": "appendix/Neos_case_mmbc_recorder.pdf",
+    "source_sha256": "f54c47083cdffcd5a06c00ef4092160a39420d1727d5bc958496a71f534e8f96",
     "width": 2400,
     "height": 2627
   },
   {
     "file": "fashion-case.webp",
     "paper_figure": "appendix/Neos_case_visbrowse_fashion.pdf",
+    "source_sha256": "82fa1bf441b53fbdbc9a4a4ed2f73f7c7d680d30972251e46963184761f7a1a7",
     "width": 2400,
     "height": 2961
   }

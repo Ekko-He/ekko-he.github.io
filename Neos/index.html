@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#fbf9fb">
-    <meta name="neos-preview-build" content="20261009-clean-ui">
+    <meta name="neos-preview-build" content="20261009-paper-update">
     <meta name="description" content="Neos is a multimodal deep search framework that learns to interleave search and visual reasoning through agent–environment co-evolution.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ekko-he.github.io/Neos/">
@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://ekko-he.github.io/Neos/">
     <link rel="icon" type="image/png" href="assets/neos-logo.png">
     <link rel="stylesheet" href="styles.css?v=20261009-clean-ui">
-    <script src="cases.js?v=2" defer></script>
+    <script src="cases.js?v=20261009-paper-update" defer></script>
     <script src="site.js?v=20261009-clean-ui" defer></script>
   </head>
   <body>
@@ -48,6 +48,8 @@
           <div class="author-row">
             <span>Wenjie Li<sup>2</sup></span>
             <span>Haoran Sun<sup>3</sup></span>
+            <span>Kaixun Jiang<sup>3</sup></span>
+            <span>Jiyuan Fu<sup>3</sup></span>
             <span>Guannan Zhang<sup>1</sup></span>
             <span>Hongwei Xue<sup>1,†</sup></span>
           </div>
@@ -108,7 +110,7 @@
 
           <p>To make this coupling learnable, Neos constructs training tasks with intermediate visual dependencies while filtering out textual shortcuts, and introduces a lightweight, trainable Multimodal Evidence Interface (MEI) that transforms retrieved content into goal-conditioned observations. At its core, an <em>agent–environment co-evolution</em> procedure treats MEI as a co-adaptive component of this loop. Specifically, reference-guided credit assignment uses verified successful trajectories to localize critical policy errors while preserving credit for useful decisions in failed searches, whereas rollout feedback selects informative local evidence-processing interactions for MEI supervised fine-tuning (SFT).</p>
 
-          <p>By alternating policy reinforcement learning (RL) with MEI SFT, Neos allows the policy's evolving evidence requests to shape MEI training and the adapted MEI to reshape subsequent observations, closing the loop between evidence acquisition and evidence-conditioned action. Across ten benchmarks, experiments show that Neos-9B improves over its backbone under the same tool workflow by <strong>17.4 percentage points on average</strong>, achieving leading performance among specialized multimodal deep search agents.</p>
+          <p>By alternating policy reinforcement learning (RL) with MEI SFT, Neos allows the policy's evolving evidence requests to shape MEI training and the adapted MEI to reshape subsequent observations, closing the loop between evidence acquisition and evidence-conditioned action. Across ten benchmarks, <strong>Neos-9B and Neos-35B</strong> demonstrate leading performance among specialized multimodal deep-search agents.</p>
         </div>
       </section>
       <section class="research-section page-width" id="method" aria-labelledby="method-title" data-figure-group>
@@ -124,15 +126,15 @@
           <button type="button" class="tab-button" data-figure-target="figure-data" aria-pressed="false" aria-controls="figure-data">Data construction</button>
         </div>
         <figure class="paper-figure" id="figure-training" data-figure-panel>
-          <button class="figure-open" type="button" data-full-image="assets/figures/training.webp" data-caption="Agent–environment co-evolution" aria-label="Enlarge the agent–environment co-evolution figure">
-            <img src="assets/figures/training.webp" width="2400" height="1228" alt="Neos training overview: reference-guided policy reinforcement learning alternates with supervised fine-tuning of the Multimodal Evidence Interface." loading="lazy" decoding="async">
+          <button class="figure-open" type="button" data-full-image="assets/figures/training.webp?v=20261009-paper-update" data-caption="Agent–environment co-evolution" aria-label="Enlarge the agent–environment co-evolution figure">
+            <img src="assets/figures/training.webp?v=20261009-paper-update" width="2400" height="1228" alt="Neos training overview: reference-guided policy reinforcement learning alternates with supervised fine-tuning of the Multimodal Evidence Interface." loading="lazy" decoding="async">
             <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
           </button>
           <figcaption><strong>Agent–environment co-evolution.</strong> Policy RL alternates with MEI SFT on outcome- and process-filtered online interactions. Reference-guided credit supports policy optimization and identifies useful local interactions for MEI updates.</figcaption>
         </figure>
         <figure class="paper-figure" id="figure-data" data-figure-panel hidden>
-          <button class="figure-open" type="button" data-full-image="assets/figures/data-pipeline.webp" data-caption="Data synthesis pipeline" aria-label="Enlarge the data construction figure">
-            <img src="assets/figures/data-pipeline.webp" width="2400" height="1449" alt="Data construction with visual checkpoints, blind visual grounding, question rewriting, shortcut screening, and verified search trajectories." loading="lazy" decoding="async">
+          <button class="figure-open" type="button" data-full-image="assets/figures/data-pipeline.webp?v=20261009-paper-update" data-caption="Data synthesis pipeline" aria-label="Enlarge the data construction figure">
+            <img src="assets/figures/data-pipeline.webp?v=20261009-paper-update" width="2400" height="1449" alt="Data construction with visual checkpoints, blind visual grounding, question rewriting, shortcut screening, and verified search trajectories." loading="lazy" decoding="async">
             <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
           </button>
           <figcaption><strong>Data synthesis pipeline.</strong> Reasoning structures with visual checkpoints undergo blind visual grounding, question rewriting, and shortcut screening. Verified successful searches provide policy demonstrations, success references, and local MEI training interactions.</figcaption>
@@ -145,25 +147,33 @@
             <p class="eyebrow section-index">03 <span aria-hidden="true">/</span> Results</p>
             <h2 id="results-title">Across ten benchmarks.</h2>
           </div>
-          <p class="section-description">Neos-9B improves over its backbone under the same tool workflow by 17.4 percentage points on average.</p>
+          <p class="section-description">Neos-9B and Neos-35B demonstrate leading performance among specialized multimodal deep-search agents.</p>
         </div>
         <div class="figure-tabs" role="group" aria-label="Results figure selection">
           <button type="button" class="tab-button" data-figure-target="figure-benchmarks" aria-pressed="true" aria-controls="figure-benchmarks">Benchmark performance</button>
           <button type="button" class="tab-button" data-figure-target="figure-tools" aria-pressed="false" aria-controls="figure-tools">Tool-use distribution</button>
+          <button type="button" class="tab-button" data-figure-target="figure-mei-interval" aria-pressed="false" aria-controls="figure-mei-interval">MEI update interval</button>
         </div>
         <figure class="paper-figure" id="figure-benchmarks" data-figure-panel>
-          <button class="figure-open" type="button" data-full-image="assets/figures/benchmarks.webp" data-caption="Benchmark performance of Neos-9B" aria-label="Enlarge the benchmark performance figure">
-            <img src="assets/figures/benchmarks.webp" width="2400" height="520" alt="Bar charts comparing Neos-9B with baselines on MMSearch, MMSearch+, BC-VL, and MM-BC." loading="lazy" decoding="async">
+          <button class="figure-open" type="button" data-full-image="assets/figures/benchmarks.webp?v=20261009-paper-update" data-caption="Benchmark performance of Neos-9B and Neos-35B" aria-label="Enlarge the benchmark performance figure">
+            <img src="assets/figures/benchmarks.webp?v=20261009-paper-update" width="2400" height="524" alt="Bar charts comparing Neos-9B and Neos-35B with baselines on MMSearch, MMSearch+, BC-VL, and MM-BC." loading="lazy" decoding="async">
             <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
           </button>
-          <figcaption><strong>Benchmark performance of Neos-9B.</strong> Four representative deep-search benchmarks: MMSearch, MMSearch+, BC-VL, and MM-BC.</figcaption>
+          <figcaption><strong>Benchmark performance of Neos-9B and Neos-35B.</strong> Four representative deep-search benchmarks: MMSearch, MMSearch+, BC-VL, and MM-BC.</figcaption>
         </figure>
         <figure class="paper-figure" id="figure-tools" data-figure-panel hidden>
-          <button class="figure-open" type="button" data-full-image="assets/figures/tool-use.webp" data-caption="Tool-call distribution across ten benchmarks" aria-label="Enlarge the tool-use distribution figure">
-            <img src="assets/figures/tool-use.webp" width="2400" height="795" alt="Tool-call distributions across ten benchmarks, showing how search, page reading, image retrieval, and cropping are used." loading="lazy" decoding="async">
+          <button class="figure-open" type="button" data-full-image="assets/figures/tool-use.webp?v=20261009-paper-update" data-caption="Tool-call distribution across ten benchmarks" aria-label="Enlarge the tool-use distribution figure">
+            <img src="assets/figures/tool-use.webp?v=20261009-paper-update" width="2400" height="795" alt="Tool-call distributions across ten benchmarks, showing how search, page reading, image retrieval, and cropping are used." loading="lazy" decoding="async">
             <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
           </button>
           <figcaption><strong>Tool-call distribution across ten benchmarks.</strong> The paper’s visualization of the tools used during multimodal search.</figcaption>
+        </figure>
+        <figure class="paper-figure" id="figure-mei-interval" data-figure-panel hidden>
+          <button class="figure-open" type="button" data-full-image="assets/figures/mei-interval.webp?v=20261009-paper-update" data-caption="Effect of the MEI update interval" aria-label="Enlarge the MEI update interval figure">
+            <img src="assets/figures/mei-interval.webp?v=20261009-paper-update" width="2400" height="1176" alt="BrowseComp-VL scores of the 9B model across policy updates, comparing MEI update intervals K = 1, 2, 5, 10, and 20." loading="lazy" decoding="async">
+            <span class="zoom-hint" aria-hidden="true">↗ Enlarge</span>
+          </button>
+          <figcaption><strong>Effect of the MEI update interval on BrowseComp-VL with the 9B model.</strong> <em>K</em> is the number of policy-training batches between MEI updates.</figcaption>
         </figure>
       </section>
 
@@ -186,7 +196,7 @@
               <h3 class="replay-title" id="replay-title">From a concert to six controls</h3>
               <div class="replay-meta" id="replay-meta">MMBC · 10 turns</div>
             </div>
-            <button class="text-button" id="paper-case" type="button" data-full-image="assets/figures/recorder-case.webp" data-caption="MMBC case study">View paper figure ↗</button>
+            <button class="text-button" id="paper-case" type="button" data-full-image="assets/figures/recorder-case.webp?v=20261009-paper-update" data-caption="MMBC case study">View paper figure ↗</button>
           </div>
           <div class="replay-body">
             <aside class="replay-input" aria-label="Multimodal input">

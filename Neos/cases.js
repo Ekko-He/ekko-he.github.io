@@ -222,7 +222,7 @@ window.NEOS_CASES = [
         "answer": "6"
       }
     ],
-    "paperFigure": "assets/figures/recorder-case.webp",
+    "paperFigure": "assets/figures/recorder-case.webp?v=20261009-paper-update",
     "provenance": {
       "kind": "recorded_benchmark_evaluation",
       "sample_id": "id_25",
@@ -472,7 +472,7 @@ window.NEOS_CASES = [
         "answer": "The scarf — she's wrapping a red plaid (Burberry check) scarf around her neck, matching the check pattern of the umbrella."
       }
     ],
-    "paperFigure": "assets/figures/fashion-case.webp",
+    "paperFigure": "assets/figures/fashion-case.webp?v=20261009-paper-update",
     "provenance": {
       "kind": "recorded_benchmark_evaluation",
       "sample_id": "item_038",
